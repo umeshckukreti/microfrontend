@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  parent:
+    build: ./parent
+    image: parent-app
+    ports:
+      - 3002:80
+    networks:
+      - react-frontends-app
+
+  child:
+    build: ./child
+    image: child-app
+    ports:
+      - 3001:80
+    networks:
+      - react-frontends-app
+
+  
+networks:
+ react-frontends-app:
